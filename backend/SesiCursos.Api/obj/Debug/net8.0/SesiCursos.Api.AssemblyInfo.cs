@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SesiCursos.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a795d498b7a8e3bd3ba2da2cd342026be4892989")]
 [assembly: System.Reflection.AssemblyProductAttribute("SesiCursos.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SesiCursos.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,6 +11,8 @@ public class AppDbContext : DbContext
     public DbSet<Status> Status => Set<Status>();
     public DbSet<Modalidade> Modalidades => Set<Modalidade>();
     public DbSet<Categoria> Categorias => Set<Categoria>();
+    public DbSet<Modulo> Modulos => Set<Modulo>();
+    public DbSet<Topico> Topicos => Set<Topico>();
 
     protected override void OnModelCreating(ModelBuilder mb)
     {
@@ -57,6 +59,36 @@ public class AppDbContext : DbContext
             e.HasOne(x => x.Status).WithMany(s => s.Cursos).HasForeignKey(x => x.FkIdStatus);
             e.HasOne(x => x.Modalidade).WithMany(m => m.Cursos).HasForeignKey(x => x.FkIdModalidade);
             e.HasOne(x => x.Categoria).WithMany(c => c.Cursos).HasForeignKey(x => x.FkIdCategoria);
+        });
+
+        mb.Entity<Modulo>(e =>
+        {
+            e.ToTable("modulos");
+            e.HasKey(x => x.IdModulos);
+            e.Property(x => x.IdModulos).HasColumnName("id_modulos");
+            e.Property(x => x.Titulo).HasColumnName("titulo").HasMaxLength(200).IsRequired();
+            e.Property(x => x.Ordem).HasColumnName("ordem");
+            e.Property(x => x.FkIdCursos).HasColumnName("fk_id_cursos");
+
+            e.HasOne(x => x.Curso)
+                .WithMany()
+                .HasForeignKey(x => x.FkIdCursos)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        mb.Entity<Topico>(e =>
+        {
+            e.ToTable("topicos");
+            e.HasKey(x => x.IdTopicos);
+            e.Property(x => x.IdTopicos).HasColumnName("id_topicos");
+            e.Property(x => x.Descricao).HasColumnName("descricao").HasMaxLength(500).IsRequired();
+            e.Property(x => x.Ordem).HasColumnName("ordem");
+            e.Property(x => x.FkIdModulos).HasColumnName("fk_id_modulos");
+
+            e.HasOne(x => x.Modulo)
+                .WithMany(m => m.Topicos)
+                .HasForeignKey(x => x.FkIdModulos)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }
