@@ -1,0 +1,267 @@
+
+
+.curso-detalhe {
+    width: 100%;
+    font-family: 'OpenSansR', sans-serif;
+    color: #111;
+}
+
+.erro {
+    padding: 40px 5%;
+    color: #9a1915;
+}
+
+/* ===== Topo: informações + imagem ===== */
+.curso-hero {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    /* texto à esquerda, imagem maior à direita */
+    align-items: center;
+    gap: 60px;
+    padding: 70px 5% 0;
+}
+
+.curso-badge {
+    display: inline-block;
+    background-color: #fdd5a0;
+    color: #1a1a1a;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'OpenSansB', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.curso-hero-info h1 {
+    font-family: 'OpenSansB', sans-serif;
+    font-size: 3rem;
+    line-height: 1.15;
+    margin: 20px 0 28px;
+    color: #111;
+}
+
+.curso-meta {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 1rem;
+    color: #222;
+}
+
+.curso-meta li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.curso-meta img {
+    width: 20px;
+    height: 20px;
+}
+
+.curso-meta strong {
+    font-family: 'OpenSansB', sans-serif;
+}
+
+/* ===== Botão preto "Matricule-se" ===== */
+.btn-matricula {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 46px;
+    padding: 0 20px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'OpenSansR', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-matricula:hover {
+    background-color: #333;
+}
+
+.btn-matricula img {
+    height: 18px;
+    filter: brightness(0) invert(1);
+    /* seta preta vira branca */
+}
+
+/* ===== Imagem com botão de play ===== */
+.curso-hero-media {
+    position: relative;
+    height: 430px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.curso-hero-media>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Película escura sobre a foto */
+.curso-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+.btn-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 92px;
+    height: 92px;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-play:hover {
+    background-color: #fff;
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* Triângulo do play */
+.btn-play::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -50%);
+    border-style: solid;
+    border-width: 14px 0 14px 24px;
+    border-color: transparent transparent transparent #111;
+}
+
+/* ===== Diferenciais (4 colunas) ===== */
+.curso-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 80px 5% 40px;
+}
+
+.diferencial img {
+    width: 55px;
+    height: 55px;
+ 
+    box-sizing: border-box;
+    background-color: #fdd5a0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.diferencial h3 {
+    font-family: 'OpenSansB', sans-serif;
+    font-size: 1.1rem;
+    margin: 0 0 4px;
+    color: #111;
+}
+
+.diferencial p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* ===== Módulos (abre e fecha) ===== */
+.modulos {
+    padding: 60px 5%;
+    border-top: 1px solid #e5e5e5;
+}
+
+.modulos summary {
+    font-family: 'OpenSansB', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    /* tira o triângulo padrão */
+}
+
+.modulos summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Sinal − / + à direita, como no design */
+.modulos summary::after {
+    content: "−";
+    float: right;
+}
+
+.modulos:not([open]) summary::after {
+    content: "+";
+}
+
+.modulo {
+    margin-top: 28px;
+}
+
+.modulo h3 {
+    font-family: 'OpenSansB', sans-serif;
+    font-size: 1rem;
+    margin: 0 0 6px;
+    color: #111;
+}
+
+.modulo ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.sem-modulos {
+    margin-top: 16px;
+    color: #666;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1000px) {
+    .curso-hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-top: 40px;
+    }
+
+    .curso-hero-info h1 {
+        font-size: 2.2rem;
+    }
+
+    .curso-hero-media {
+        height: 300px;
+    }
+
+    .curso-diferenciais {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .curso-diferenciais {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-play {
+        width: 70px;
+        height: 70px;
+    }
+}

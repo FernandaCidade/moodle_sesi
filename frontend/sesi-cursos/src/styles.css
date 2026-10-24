@@ -1,0 +1,31 @@
+/* Declaração dos estilos da fonte Open Sans */
+
+/* Estilo Normal / Regular */
+@font-face {
+    font-family: 'OpenSansR';
+    src: url('/_Font/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Estilo Bold (Negrito) */
+@font-face {
+    font-family: 'OpenSansB';
+    src: url('/_Font/static/OpenSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Estilo Extra Bold */
+@font-face {
+    font-family: 'OpenSansXB';
+    src: url('/_Font/static/OpenSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Aplicar a fonte globalmente em todo o projeto */
+body,
+html {
+    font-family: 'OpenSans', sans-serif;
+}

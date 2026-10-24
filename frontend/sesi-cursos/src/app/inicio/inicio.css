@@ -1,0 +1,228 @@
+.hero-container {
+    /* Mistura a imagem com a cor vermelha por cima */
+    background: linear-gradient(rgba(154,25,21, 0.88), rgba(154,25,21, 0.88)),
+        url('/assets/hero-image.png') center/cover no-repeat;
+    width: 100%;
+    min-height: 70vh; /* Ocupa 100% da altura total do ecrã */
+    display: flex;
+    align-items: center;
+    padding: 120px 8% 60px 8%;
+    box-sizing: border-box;
+    color: #ffffff;
+
+}
+
+.hero-content{
+    width: 50%;
+}
+.hero-content h1 {
+    font-family: 'OpenSansXB', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+
+    font-size: 3.5rem;
+    /* Adicione esta linha (ajuste o valor conforme preferir) */
+    line-height: 1.15;
+    /* Evita que as linhas de texto sobreponham quando o título for grande */
+}
+/* Texto descritivo */
+.hero-content p {
+    font-family: 'OpenSansR', sans-serif;
+    font-weight: 400;
+    /* Regular */
+}
+.btn-hero{
+    font-family: 'OpenSansB', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: black;
+    height: 50px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px ;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-hero:hover{
+    background-color:#E6E6E6;
+}
+
+.btn-hero img{
+    height: 30px;
+    display: flex;
+    margin: 5px;
+}
+
+/*Cursos*/
+
+.cursos-container {
+    margin: 60px;
+}
+
+
+.cards-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scroll-behavior: smooth;
+}
+/*Tirando o sublinado do link*/
+.cards-grid a{
+    text-decoration: none;
+}
+
+/* Personalização suave da barra de rolagem */
+.cards-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.cards-grid::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Cartão com imagem de fundo e gradiente vermelho */
+.card {
+    flex: 0 0 280px;
+    height: 400px;
+    border-radius: 12px;
+    padding: 18px;
+    box-sizing: border-box;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Flexbox para posicionar o badge no topo e o texto na base */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+/* Etiqueta superior (Badge) */
+.badge {
+    align-self: flex-start;
+    background-color: #fde8cd;
+    color: #1a1a1a;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: auto;
+}
+
+/*Configuração setas*/
+.setas img{
+    border-radius: 10px;
+}
+.setas img:hover{
+    background-color: rgba(135,135,135, 0.2)
+}
+/* Conteúdo do cartão no rodapé (fundo transparente para usar o gradiente) */
+.card-content, .ver-cursos {
+    padding: 0;
+    background-color: transparent;
+}
+
+.ver-cursos{
+    display: flex;
+    position: relative;
+    margin-top: 20rem;
+}
+
+.ver-cursos h3{
+    font-family: 'OpenSansXB', 'OpenSansB', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+    color: black;
+}
+
+.card-content h3 {
+    font-family: 'OpenSansXB', 'OpenSansB', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.card-content p {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.95;
+    color: #ffffff;
+
+    /* Limita o texto a 3 linhas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+#cursos {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.card {
+    flex: 0 0 320px;
+    /* impede os cards de encolherem */
+    scroll-snap-align: start;
+}
+
+/* Cards de curso (com imagem de fundo vinda da API) */
+.card-curso {
+    position: relative;
+    background-color: #9a1915;
+    /* cor de reserva enquanto a imagem carrega */
+}
+
+/* Degradê: imagem aparecendo no topo, vermelho sólido na base */
+.card-curso::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(154, 25, 21, 0) 0%,
+            rgba(154, 25, 21, 0) 35%,
+            rgba(154, 25, 21, 0.85) 62%,
+            rgba(154, 25, 21, 1) 100%);
+    pointer-events: none;
+}
+
+/* Badge e texto ficam acima do degradê */
+.card-curso>* {
+    position: relative;
+    z-index: 1;
+}

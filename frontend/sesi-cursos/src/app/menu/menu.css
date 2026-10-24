@@ -1,0 +1,67 @@
+/* Estado Padrão (Transparente no Topo) */
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent !important;
+    box-shadow: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    padding: 0 7px 0 7px;
+}
+
+#area-aluno{
+    border: 1px solid #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+}
+/* Estado quando a página é rolada (Fundo Branco) */
+.fixed-menu.scrolled {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Opcional: Alterar a cor dos links para escuro quando o fundo ficar branco */
+.fixed-menu.scrolled a {
+    color: #1a1a1a !important;
+}
+
+
+
+.fixed-menu.scrolled #area-aluno{
+    border: 1px solid #878787;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/* Empurra tudo o que estiver depois desta classe para o canto direito */
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+/* Define o alinhamento e o espaço entre todos os itens */
+mat-toolbar-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    /* Aumente ou diminua o valor para ajustar a distância */
+    padding: 0 2rem;
+    /* Margem lateral da barra */
+}
+
+/* Formatação dos links do menu */
+mat-toolbar-row a {
+    text-decoration: none;
+    /* Remove o sublinhado azul padrão */
+    color: inherit;
+    /* Mantém a cor do texto do menu */
+    font-size: 15px;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+mat-toolbar-row a:hover {
+    opacity: 0.8;
+}

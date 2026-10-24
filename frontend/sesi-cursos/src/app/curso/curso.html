@@ -1,0 +1,82 @@
+<section class="curso-detalhe">
+
+    <!-- Se houver erro, aponta qual -->
+    @if (erro()) {
+    <p class="erro">{{ erro() }}</p>
+    }
+
+    @if (curso(); as c) {
+
+    <!-- Topo: informações + imagem -->
+    <section class="curso-hero">
+        <div class="curso-hero-info">
+            <span class="curso-badge">{{ c.categoria }}</span>
+
+            <h1>{{ c.nomeCompleto }}</h1>
+
+            <ul class="curso-meta">
+                <li>
+                    <img src="assets/calendario.svg" alt="">
+                    Início do curso: <strong>{{ c.dataDisponibilizacao | date: 'dd/MM/yyyy' }}</strong>
+                </li>
+                <li>
+                    <img src="assets/qualidade.svg" alt="">
+                    Certificação: <strong>SESI</strong>
+                </li>
+            </ul>
+
+            <button type="button" class="btn-matricula">
+                Matricule-se <img src="assets/arrow-navigation-1.svg" alt="">
+            </button>
+        </div>
+
+        <div class="curso-hero-media">
+            <img [src]="c.imagemApresentacao" [alt]="c.nomeBreve">
+            <button type="button" class="btn-play" aria-label="Assistir apresentação"></button>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="curso-diferenciais">
+        <div class="diferencial">
+            <img src="assets/01-certificacao-bege.svg" alt="">
+            <h3>Certificação SESI</h3>
+            <p>Cursos com a melhor certificação do mercado industrial reconhecidos pelo SESI.</p>
+        </div>
+        <div class="diferencial">
+            <img src="assets/02-professores-bege.svg" alt="">
+            <h3>Professores especialistas</h3>
+            <p>Contamos com professores reconhecidos por sua excelência no mercado.</p>
+        </div>
+        <div class="diferencial">
+            <img src="assets/03-suporte-bege.svg" alt="">
+            <h3>Suporte contínuo</h3>
+            <p>Você não está sozinho! Acompanhamento online durante todo o curso.</p>
+        </div>
+        <div class="diferencial">
+            <img src="assets/04-flexibilidade-bege.svg" alt="">
+            <h3>Flexibilidade</h3>
+            <p>Turmas presenciais e online com horários que se adaptam à sua rotina.</p>
+        </div>
+    </section>
+    }
+
+    <!-- Módulos -->
+    <details class="modulos" open>
+        <summary>Módulos</summary>
+
+        @for (m of modulos(); track m.id; let i = $index) {
+        <div class="modulo">
+            <h3>{{ i + 1 }}. {{ m.titulo }}</h3>
+            <ul>
+                @for (t of m.topicos; track $index) {
+                <li>{{ t }}</li>
+                }
+            </ul>
+        </div>
+        } @empty {
+        <p class="sem-modulos">Os módulos deste curso ainda não foram cadastrados.</p>
+        }
+    </details>
+
+</section>

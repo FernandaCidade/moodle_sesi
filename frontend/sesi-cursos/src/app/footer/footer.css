@@ -1,0 +1,37 @@
+.section-footer{
+    background-color:#1D0300;
+ 
+}
+.section-contato{
+    display: flex;
+    padding: 12px 8% 60px 8%;
+    justify-content: space-between;
+    
+}
+
+.section-contato img{
+    padding-top:15px;
+}
+.contato-content p, .navegacao-content p{
+    font-family: 'OpenSansR', sans-serif;
+    color: #fff;
+    font-size: 12px;
+}
+.footer-redes{
+    padding: 12px 8% 60px 8%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo-sesi{
+    display: flex;
+    align-items: center;
+    color: #ccc;
+}
+.logo-sesi img{
+    width: 100px;
+    padding: 16px;
+}
+
+#titulo{
+    font-weight: bold;
+}
