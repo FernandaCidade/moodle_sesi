@@ -1,5 +1,3 @@
-
-
 .curso-detalhe {
     width: 100%;
     font-family: 'OpenSansR', sans-serif;
@@ -161,7 +159,6 @@
 .diferencial img {
     width: 55px;
     height: 55px;
- 
     box-sizing: border-box;
     background-color: #fdd5a0;
     border-radius: 8px;
@@ -182,36 +179,66 @@
     color: #666;
 }
 
-/* ===== Módulos (abre e fecha) ===== */
-.modulos {
-    padding: 60px 5%;
+/* ===== Seções expansíveis (Módulos, Aulas online, Dúvidas) ===== */
+.secoes {
+    padding: 40px 5% 60px;
     border-top: 1px solid #e5e5e5;
 }
 
-.modulos summary {
+.secao {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.secao summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
     font-family: 'OpenSansB', sans-serif;
     font-size: 1.5rem;
+    color: #111;
     cursor: pointer;
     list-style: none;
     /* tira o triângulo padrão */
 }
 
-.modulos summary::-webkit-details-marker {
+.secao summary::-webkit-details-marker {
     display: none;
 }
 
-/* Sinal − / + à direita, como no design */
-.modulos summary::after {
-    content: "−";
-    float: right;
-}
-
-.modulos:not([open]) summary::after {
+/* Sinal + (fechado) e − (aberto), à direita */
+.secao summary::after {
     content: "+";
+    font-family: 'OpenSansR', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
 }
 
-.modulo {
-    margin-top: 28px;
+.secao[open] summary::after {
+    content: "−";
+}
+
+.secao summary:focus-visible {
+    outline: 2px solid #9a1915;
+    outline-offset: 2px;
+}
+
+.secao-conteudo {
+    padding: 0 0 28px;
+}
+
+/* Lista simples (Aulas online e avaliações) */
+.secao-conteudo>ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Blocos internos (módulos e perguntas) */
+.modulo+.modulo {
+    margin-top: 24px;
 }
 
 .modulo h3 {
@@ -228,10 +255,55 @@
     line-height: 1.7;
 }
 
+.modulo p {
+    margin: 0;
+    color: #666;
+    line-height: 1.7;
+}
+
 .sem-modulos {
-    margin-top: 16px;
+    margin: 0;
     color: #666;
 }
+/* ===== Sobre o curso (2 colunas) ===== */
+.curso-sobre {
+    display: grid;
+    grid-template-columns: 4fr 7fr;
+    align-items: start;
+    gap: 60px;
+    padding: 60px 5%;
+    border-top: 1px solid #e5e5e5;
+}
+
+.sobre-texto h2 {
+    font-family: 'OpenSansB', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    color: #111;
+}
+
+.sobre-texto p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: #222;
+}
+
+.secoes {
+    padding: 0;
+}
+
+.curso-sobre {
+ grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 40px 5%;
+}
+    
+.sobre-texto h2 {
+    font-size: 2rem;
+}
+
 
 /* ===== Responsivo ===== */
 @media (max-width: 1000px) {
@@ -255,6 +327,9 @@
     }
 }
 
+
+
+
 @media (max-width: 600px) {
     .curso-diferenciais {
         grid-template-columns: 1fr;
@@ -264,4 +339,11 @@
         width: 70px;
         height: 70px;
     }
+
+    .secao summary {
+        font-size: 1.2rem;
+        padding: 18px 0;
+    }
 }
+
+

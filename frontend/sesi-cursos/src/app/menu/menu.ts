@@ -22,24 +22,27 @@ export class Menu {
 
   isScrolled = false;
 
-  // Defina os caminhos das versões do logo
+  // Caminhos das logos
   logoPadrao = 'assets/logo-sesi-industria-white.svg';
   logoScroll = 'assets/logo-sesi-industria-primary.svg';
-  logoCurso = 'assets/logo-curso.svg';   // troque pelo nome do arquivo da logo da página do curso
+  logoCurso = 'assets/logo-sesi-industria-primary.svg';   // troque pelo nome do arquivo da logo da aba de cursos
 
-  // true quando a rota atual é a página de um curso (/curso/1, /curso/2...)
+  // true quando a rota é a listagem (/cursos) ou o detalhe (/curso/1)
   paginaCurso = signal(false);
 
   constructor() {
-    // valor inicial (caso a pessoa abra direto em /curso/1)
-    this.paginaCurso.set(this.router.url.startsWith('/curso/'));
+    // valor inicial (caso a pessoa abra a página direto pela URL)
+    this.paginaCurso.set(this.ehPaginaCurso(this.router.url));
 
     // atualiza a cada troca de página
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((e) =>
-        this.paginaCurso.set(e.urlAfterRedirects.startsWith('/curso/'))
-      );
+      .subscribe((e) => this.paginaCurso.set(this.ehPaginaCurso(e.urlAfterRedirects)));
+  }
+
+  private ehPaginaCurso(url: string): boolean {
+    const caminho = url.split(/[?#]/)[0];   // ignora query string e âncora
+    return caminho === '/cursos' || caminho.startsWith('/curso/');
   }
 
   // Escolhe qual logo exibir

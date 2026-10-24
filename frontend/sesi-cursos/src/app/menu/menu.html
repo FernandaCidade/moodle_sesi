@@ -1,13 +1,13 @@
-<mat-toolbar [class.scrolled]="isScrolled" class="fixed-menu">
+<mat-toolbar [class.scrolled]="isScrolled" [class.menu-curso]="paginaCurso()" class="fixed-menu">
     <mat-toolbar-row>
-        <div class="logo-container">
-            <img [src]="isScrolled ? logoScroll : logoPadrao" alt="Logo SESI" class="logo-img">
-        </div>
+        <a routerLink="/" class="logo-container">
+            <img [src]="logoAtual" alt="Logo SESI" class="logo-img">
+        </a>
         <span class="example-spacer"></span>
         <span><a routerLink="/">Início</a></span>
-        <span><a routerLink="/">Cursos</a></span>
-        <span><a routerLink="/">Sobre</a></span>
-        
+        <span><a routerLink="/cursos">Cursos</a></span>
+        <span><a routerLink="/" fragment="secao-sobre">Sobre</a></span>
+
         <span id="area-aluno"><a routerLink="/area-aluno">Área do aluno</a></span>
     </mat-toolbar-row>
 </mat-toolbar>

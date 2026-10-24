@@ -61,22 +61,65 @@
     </section>
     }
 
-    <!-- Módulos -->
-    <details class="modulos" open>
-        <summary>Módulos</summary>
+        
+        <!-- Sobre o curso + seções expansíveis -->
+        <section class="curso-sobre">
 
-        @for (m of modulos(); track m.id; let i = $index) {
-        <div class="modulo">
-            <h3>{{ i + 1 }}. {{ m.titulo }}</h3>
-            <ul>
-                @for (t of m.topicos; track $index) {
-                <li>{{ t }}</li>
-                }
-            </ul>
-        </div>
-        } @empty {
-        <p class="sem-modulos">Os módulos deste curso ainda não foram cadastrados.</p>
-        }
-    </details>
+            <div class="sobre-texto">
+                <h2>Sobre o curso</h2>
+                <p>{{ curso()?.descricao }}</p>
+            </div>
 
+            <div class="secoes">
+
+                <!-- Módulos -->
+                <details class="secao" name="secoes-curso">
+                    <summary>Módulos</summary>
+
+                    <div class="secao-conteudo">
+                        @for (m of modulos(); track m.id; let i = $index) {
+                        <div class="modulo">
+                            <h3>{{ i + 1 }}. {{ m.titulo }}</h3>
+                            <ul>
+                                @for (t of m.topicos; track $index) {
+                                <li>{{ t }}</li>
+                                }
+                            </ul>
+                        </div>
+                        } @empty {
+                        <p class="sem-modulos">Os módulos deste curso ainda não foram cadastrados.</p>
+                        }
+                    </div>
+                </details>
+
+                <!-- Aulas online e avaliações -->
+                <details class="secao" name="secoes-curso">
+                    <summary>Aulas online e avaliações</summary>
+
+                    <div class="secao-conteudo">
+                        <ul>
+                            @for (item of aulasOnline; track $index) {
+                            <li>{{ item }}</li>
+                            }
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Dúvidas frequentes -->
+                <details class="secao" name="secoes-curso" open>
+                    <summary>Dúvidas frequentes</summary>
+
+                    <div class="secao-conteudo">
+                        @for (d of duvidas; track $index; let i = $index) {
+                        <div class="modulo">
+                            <h3>{{ i + 1 }}. {{ d.pergunta }}</h3>
+                            <p>{{ d.resposta }}</p>
+                        </div>
+                        }
+                    </div>
+                </details>
+
+            </div>
+        </section>  
 </section>
+    <app-depoimento tema="claro" />

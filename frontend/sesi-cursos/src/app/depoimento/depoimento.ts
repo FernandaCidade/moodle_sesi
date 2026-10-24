@@ -1,19 +1,20 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faQuoteLeft, faStar } from '@fortawesome/free-solid-svg-icons';
+import { Chamada } from '../chamada/chamada';
 
 @Component({
   selector: 'app-depoimento',
   standalone: true,
-  imports: [RouterLink, CommonModule, FontAwesomeModule],
+  imports: [RouterLink, CommonModule, FontAwesomeModule, Chamada],
   templateUrl: './depoimento.html',
   styleUrl: './depoimento.css',
 })
 export class Depoimento {
-  faQuoteLeft = faQuoteLeft;
-  faStar = faStar;
+
+  tema = input<'escuro' | 'claro'>('escuro');
+
   // Pegamos a referência do elemento HTML com a hashtag #carouselGrid
   @ViewChild('carouselGrid') carouselGrid!: ElementRef<HTMLDivElement>;
 

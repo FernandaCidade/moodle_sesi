@@ -1,0 +1,93 @@
+/*Configuração da chamada*/
+
+.section-chamada {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 40px;
+    border-top: 2px solid #ccc;
+}
+
+.chamada-content {
+    display: flex;
+
+    flex-direction: column;
+    padding: 0;
+    margin-left: 10px;
+    gap: 8%;
+}
+
+.chamada-content h1 {
+    font-size: 40px;
+    font-family: 'OpenSansB', sans-serif;
+    margin: 0;
+    color: #fff;
+    line-height: 1;
+}
+
+.chamada-content p {
+    font-family: 'OpenSansR', sans-serif;
+    color: #fff;
+
+}
+
+.video {
+    position: relative;
+    /* para o botão se posicionar dentro dele */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/assets/video-thumb.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Botão de play */
+.btn-play {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-play:hover {
+    background-color: #fff;
+    transform: scale(1.06);
+}
+
+/* Triângulo do play */
+.btn-play::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -50%);
+    /* o triângulo parece mais centralizado um pouco à direita */
+    border-style: solid;
+    border-width: 14px 0 14px 24px;
+    border-color: transparent transparent transparent #111;
+}
+
+.chamada-content button {
+    font-family: 'OpenSansB', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: black;
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
