@@ -1,9 +1,10 @@
 .hero-container {
     /* Mistura a imagem com a cor vermelha por cima */
-    background: linear-gradient(rgba(154,25,21, 0.88), rgba(154,25,21, 0.88)),
+    background: linear-gradient(rgba(154, 25, 21, 0.88), rgba(154, 25, 21, 0.88)),
         url('/assets/hero-image.png') center/cover no-repeat;
     width: 100%;
-    min-height: 70vh; /* Ocupa 100% da altura total do ecrã */
+    min-height: 70vh;
+    /* Ocupa 100% da altura total do ecrã */
     display: flex;
     align-items: center;
     padding: 120px 8% 60px 8%;
@@ -12,9 +13,10 @@
 
 }
 
-.hero-content{
+.hero-content {
     width: 50%;
 }
+
 .hero-content h1 {
     font-family: 'OpenSansXB', sans-serif;
     font-weight: 800;
@@ -25,13 +27,15 @@
     line-height: 1.15;
     /* Evita que as linhas de texto sobreponham quando o título for grande */
 }
+
 /* Texto descritivo */
 .hero-content p {
     font-family: 'OpenSansR', sans-serif;
     font-weight: 400;
     /* Regular */
 }
-.btn-hero{
+
+.btn-hero {
     font-family: 'OpenSansB', sans-serif;
     display: flex;
     align-items: center;
@@ -41,16 +45,16 @@
     height: 50px;
     width: 200px;
     padding: 10px;
-    border-radius: 10px ;
+    border-radius: 10px;
     border: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.btn-hero:hover{
-    background-color:#E6E6E6;
+.btn-hero:hover {
+    background-color: #E6E6E6;
 }
 
-.btn-hero img{
+.btn-hero img {
     height: 30px;
     display: flex;
     margin: 5px;
@@ -70,8 +74,9 @@
     padding-bottom: 16px;
     scroll-behavior: smooth;
 }
+
 /*Tirando o sublinado do link*/
-.cards-grid a{
+.cards-grid a {
     text-decoration: none;
 }
 
@@ -131,7 +136,7 @@
     gap: 6px;
 }
 
-.botoes{
+.botoes {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -139,25 +144,28 @@
 }
 
 /*Configuração setas*/
-.setas img{
+.setas img {
     border-radius: 10px;
 }
-.setas img:hover{
-    background-color: rgba(135,135,135, 0.2)
+
+.setas img:hover {
+    background-color: rgba(135, 135, 135, 0.2)
 }
+
 /* Conteúdo do cartão no rodapé (fundo transparente para usar o gradiente) */
-.card-content, .ver-cursos {
+.card-content,
+.ver-cursos {
     padding: 0;
     background-color: transparent;
 }
 
-.ver-cursos{
+.ver-cursos {
     display: flex;
     position: relative;
     margin-top: 20rem;
 }
 
-.ver-cursos h3{
+.ver-cursos h3 {
     font-family: 'OpenSansXB', 'OpenSansB', sans-serif;
     font-size: 1.15rem;
     font-weight: 800;
@@ -195,6 +203,7 @@
     border: 1px solid black;
     border-radius: 10px;
 }
+
 .card {
     flex: 0 0 320px;
     /* impede os cards de encolherem */
@@ -225,4 +234,10 @@
 .card-curso>* {
     position: relative;
     z-index: 1;
+}
+
+/* Botão "Ver todos os cursos" agora é um link */
+a.btn-hero {
+    text-decoration: none;
+    box-sizing: border-box;
 }

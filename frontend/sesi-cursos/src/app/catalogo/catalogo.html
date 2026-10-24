@@ -1,0 +1,107 @@
+<main class="catalogo">
+    <header class="topo">
+        <h1>Cursos</h1>
+        <p>Pesquise pelo nome e filtre por categoria, modalidade ou status.</p>
+    </header>
+
+    <div class="filtros" role="search">
+        <div class="campo campo-busca">
+            <label for="busca">Pesquisar por nome</label>
+            <input #busca id="busca" type="search" autocomplete="off" placeholder="Digite o nome do curso"
+                [value]="termo()" (input)="digitar(busca.value)" (keydown.enter)="enviarAgora()">
+        </div>
+
+        <div class="campo">
+            <label for="categoria">Categoria</label>
+            <select #categoria id="categoria" (change)="escolher('categoria', categoria.value)">
+                <option value="">Todas</option>
+                @for (o of opcoes().categorias; track o.id) {
+                <option [value]="o.id" [selected]="filtros().categoria === o.id">{{ o.nome }}</option>
+                }
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="modalidade">Modalidade</label>
+            <select #modalidade id="modalidade" (change)="escolher('modalidade', modalidade.value)">
+                <option value="">Todas</option>
+                @for (o of opcoes().modalidades; track o.id) {
+                <option [value]="o.id" [selected]="filtros().modalidade === o.id">{{ o.nome }}</option>
+                }
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="status">Status</label>
+            <select #status id="status" (change)="escolher('status', status.value)">
+                <option value="">Todos</option>
+                @for (o of opcoes().status; track o.id) {
+                <option [value]="o.id" [selected]="filtros().status === o.id">{{ o.nome }}</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="barra">
+        <p class="contagem" role="status" aria-live="polite">
+            @if (carregando()) {
+            Buscando cursos…
+            } @else if (!erro()) {
+            {{ total() }} {{ total() === 1 ? 'curso encontrado' : 'cursos encontrados' }}
+            }
+        </p>
+        @if (temFiltros()) {
+        <button type="button" class="limpar" (click)="limpar()">Limpar filtros</button>
+        }
+    </div>
+
+    @if (carregando()) {
+    <ul class="grade" aria-hidden="true">
+        @for (i of esqueleto; track i) {
+        <li class="cartao esqueleto"></li>
+        }
+    </ul>
+    } @else if (erro()) {
+    <div class="aviso" role="alert">
+        <h2>Não foi possível carregar os cursos</h2>
+        <p>Verifique sua conexão e tente novamente.</p>
+        <button type="button" class="btn" (click)="recarregar()">Tentar novamente</button>
+    </div>
+    } @else if (cursos().length === 0) {
+    <div class="aviso">
+        <h2>Nenhum curso encontrado</h2>
+        <p>Tente outro termo de pesquisa ou remova alguns filtros.</p>
+        @if (temFiltros()) {
+        <button type="button" class="btn" (click)="limpar()">Limpar filtros</button>
+        }
+    </div>
+    } @else {
+    <ul class="grade">
+        @for (c of cursos(); track c.id) {
+        <li>
+            <a class="cartao" [routerLink]="['/curso', c.id]">
+                @if (c.imagemApresentacao) {
+                <img [src]="c.imagemApresentacao" alt="" loading="lazy">
+                }
+                <span class="badge">{{ c.categoria }}</span>
+                <div class="texto">
+                    <h2>{{ c.nomeCompleto }}</h2>
+                    <p class="desc">{{ c.descricao }}</p>
+                    <p class="info">{{ detalhes(c) }}</p>
+                </div>
+            </a>
+        </li>
+        }
+    </ul>
+
+    @if (totalPaginas() > 1) {
+    <nav class="paginacao" aria-label="Paginação dos cursos">
+        <button type="button" class="btn" (click)="irPara(filtros().pagina - 1)"
+            [disabled]="filtros().pagina <= 1">Anterior</button>
+        <span>Página {{ filtros().pagina }} de {{ totalPaginas() }}</span>
+        <button type="button" class="btn" (click)="irPara(filtros().pagina + 1)"
+            [disabled]="filtros().pagina >= totalPaginas()">Próxima</button>
+    </nav>
+    }
+    }
+</main>

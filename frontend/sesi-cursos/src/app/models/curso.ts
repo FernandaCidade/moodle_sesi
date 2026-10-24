@@ -28,3 +28,14 @@ export interface Modulo {
   ordem: number;
   topicos: string[];
 }
+
+export interface Opcao {
+  id: number;
+  nome: string;
+}
+
+export interface OpcoesFiltro {
+  categorias: Opcao[];
+  modalidades: Opcao[];
+  status: Opcao[];
+}

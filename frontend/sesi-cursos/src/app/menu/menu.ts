@@ -12,7 +12,8 @@ import { filter } from 'rxjs';
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
-    RouterLink
+    RouterLink,
+    
   ],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
@@ -42,7 +43,7 @@ export class Menu {
 
   private ehPaginaCurso(url: string): boolean {
     const caminho = url.split(/[?#]/)[0];   // ignora query string e âncora
-    return caminho === '/cursos' || caminho.startsWith('/curso/');
+    return caminho === '/catalogo' || caminho.startsWith('/curso/');
   }
 
   // Escolhe qual logo exibir

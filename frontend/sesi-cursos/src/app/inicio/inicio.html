@@ -19,28 +19,28 @@
 
     <div class="cards-grid" #carouselGrid>
         <!-- Cards vindos da API -->
-    @for (curso of cursos(); track curso.id) {
-    <a class="card card-curso" [routerLink]="['/curso', curso.id]"
-        [style.background-image]="'url(' + curso.imagemApresentacao + ')'">
-        <span class="badge">{{ curso.categoria }}</span>
-        <div class="card-content">
-            <h3>{{ curso.nomeCompleto }}</h3>
-            <p>{{ curso.descricao }}</p>
-        </div>
-    </a>
-    }
+        @for (curso of cursos(); track curso.id) {
+        <a class="card card-curso" [routerLink]="['/curso', curso.id]"
+            [style.background-image]="'url(' + curso.imagemApresentacao + ')'">
+            <span class="badge">{{ curso.categoria }}</span>
+            <div class="card-content">
+                <h3>{{ curso.nomeCompleto }}</h3>
+                <p>{{ curso.descricao }}</p>
+            </div>
+        </a>
+        }
 
         <!-- Card fixo no final -->
-        <div class="card">
+        <a class="card" routerLink="/catalogo">
             <div class="ver-cursos">
                 <h3>Todos os cursos</h3>
                 <img src="assets/arrow-navigation-1.svg" alt="">
             </div>
-        </div>
+        </a>
     </div>
 
     <div class="botoes">
-        <button type="button" class="btn-hero" (click)="rolarParaContainer(destino)">Ver todos os cursos</button>
+        <a class="btn-hero" routerLink="/catalogo">Ver todos os cursos</a>
         <div class="setas">
             <button type="button" (click)="moverOpcao('esquerda')" aria-label="Anterior">
                 <img src="assets/arrow-navigation.svg" alt="">

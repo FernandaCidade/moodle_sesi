@@ -59,3 +59,12 @@ REFERENCES categorias(id_categoria);
 insert into categorias values('Matemática'),('Ciências da Natureza'), ('Ciências Humanas'),('Linguagens');
 insert into modalidades values ('Presencial'), ('Híbrido'), ('EAD');
 
+
+select * from cursos
+
+select * from status
+
+
+UPDATE cursos
+SET imagem_apresentacao = '/assets/banner-ava.png'
+WHERE id_cursos = 11;
