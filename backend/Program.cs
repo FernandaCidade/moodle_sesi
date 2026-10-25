@@ -3,8 +3,13 @@ using SesiCursos.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection não configurada.");
+
+// MySQL: "8.0.36-mysql"  |  MariaDB: "10.11.6-mariadb"
+var serverVersion = ServerVersion.Parse(builder.Configuration["Database:ServerVersion"] ?? "8.0.36-mysql");
+
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseMySql(connectionString, serverVersion));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
