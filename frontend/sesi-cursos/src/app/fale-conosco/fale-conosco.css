@@ -1,0 +1,41 @@
+.section-contato {
+    padding: 70px 5%;
+    background: #8b0000;
+    color: #fff;
+    text-align: center;
+}
+
+.contato-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.contato-content p {
+    margin: 0;
+    font-family: 'OpenSansR', sans-serif;
+    font-size: 0.8rem;
+}
+
+.contato-content h1 {
+    margin: 0;
+    font-family: 'OpenSansB', sans-serif;
+    font-size: 2.5rem;
+    padding-bottom: 10px;
+}
+
+.btn-matricula{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'OpenSansB', sans-serif;
+
+}
+.btn-matricula img{
+    width: 30px;
+}

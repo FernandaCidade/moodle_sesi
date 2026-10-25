@@ -4,10 +4,11 @@ import { DatePipe } from '@angular/common';
 import { CursoService } from '../services/curso.service';
 import { Curso as CursoModel, Modulo } from '../models/curso';   // apelido para não conflitar
 import { Depoimento } from '../depoimento/depoimento';
+import { FaleConosco } from '../fale-conosco/fale-conosco';
 
 @Component({
   selector: 'app-curso',
-  imports: [RouterLink, DatePipe, Depoimento],
+  imports: [RouterLink, DatePipe, Depoimento, FaleConosco],
   templateUrl: './curso.html',
   styleUrl: './curso.css',
 })
