@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\SesiCursos.Api.props" />
-</Project>
